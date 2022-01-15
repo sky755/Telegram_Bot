@@ -1,7 +1,7 @@
 {
-  "locked": false,
-  "disabled": false,
-  "private": false,
+  "locked": False,
+  "disabled": False,
+  "private": False,
   "details": {
     "website": "https://invisiblebattalion.org/",
     "phoneNumber": "",
@@ -13,7 +13,7 @@
   },
   "$schema": "../../bot.config.schema.json",
   "description": "Повідомити про сексуальні домагання або дискримінацію",
-  "active": true,
+  "active": True,
   "version": "12.26.3",
   "author": "Botpress, Inc.",
   "license": "AGPL-3.0",
@@ -59,6 +59,9 @@
   },
   "messaging": {
     "id": "74c3d573-54e2-4537-970f-e311b8103fb5",
-    "token": "U5RibXpTaGk9deWTyLvYUcoKZDP9xckhcT9M17uQshVNvXlppWb6s4zsCdUmnMr5PO5joz+h+X5JqzaDVYF4x/0h"
-  }
+    "token": "U5RibXpTaGk9deWTyLvYUcoKZDP9xckhcT9M17uQshVNvXlppWb6s4zsCdUmnMr5PO5joz+h+X5JqzaDVYF4x/0h",
+    "channels": {"telegram": {
+    "enabled": True,"botToken": "5024376525:AAFMjTvfDozTffhDs_fuo1F0Bv6xfkJbOZY"}}
+
+    }
 }
