@@ -1,67 +1,19 @@
-{
-  "locked": False,
-  "disabled": False,
-  "private": False,
-  "details": {
-    "website": "https://invisiblebattalion.org/",
-    "phoneNumber": "",
-    "emailAddress": "",
-    "termsConditions": "",
-    "privacyPolicy": "",
-    "avatarUrl": "",
-    "coverPictureUrl": "/api/v1/bots/BOT_ID_PLACEHOLDER/media/ykxdyflcui88q2je8mkf-pattern-made-connection-icons_1061-383%201.png"
-  },
-  "$schema": "../../bot.config.schema.json",
-  "description": "Повідомити про сексуальні домагання або дискримінацію",
-  "active": True,
-  "version": "12.26.3",
-  "author": "Botpress, Inc.",
-  "license": "AGPL-3.0",
-  "imports": {
-    "modules": [],
-    "incomingMiddleware": [],
-    "outgoingMiddleware": [],
-    "contentTypes": [
-      "builtin_action-button",
-      "builtin_audio",
-      "builtin_card",
-      "builtin_carousel",
-      "builtin_image",
-      "builtin_location",
-      "builtin_single-choice",
-      "builtin_text",
-      "builtin_video",
-      "dropdown",
-      "builtin_file"
-    ]
-  },
-  "headers": {
-    "X-Powered-By": "Veteranius"
-  },
-  "dialog": {
-    "timeoutInterval": "5m"
-  },
-  "logs": {
-    "expiration": "1 week"
-  },
-  "defaultLanguage": "ru",
-  "languages": [
-    "ru"
-  ],
-  "id": "ib-bot",
-  "name": "Повідомити про сексуальні домагання або дискримінацію",
-  "pipeline_status": {
-    "current_stage": {
-      "id": "prod",
-      "promoted_on": "2021-09-27T14:20:02.814Z",
-      "promoted_by": "system"
-    }
-  },
-  "messaging": {
-    "id": "74c3d573-54e2-4537-970f-e311b8103fb5",
-    "token": "U5RibXpTaGk9deWTyLvYUcoKZDP9xckhcT9M17uQshVNvXlppWb6s4zsCdUmnMr5PO5joz+h+X5JqzaDVYF4x/0h",
-    "channels": {"telegram": {
-    "enabled": True,"botToken": "5024376525:AAFMjTvfDozTffhDs_fuo1F0Bv6xfkJbOZY"}}
 
-    }
-}
+import telebot
+from telebot import types
+
+TOKEN = '5024376525:AAFMjTvfDozTffhDs_fuo1F0Bv6xfkJbOZY'
+bot = telebot.TeleBot(TOKEN)
+@bot.message_handler(commands=['start'])
+def start(message):
+  markup_inline = types.InlineKeyboardMarkup()
+  key_answer1 = types.InlineKeyboardButton(text='Поспілкуємось', callback_data='answer1')
+  key_answer2 = types.InlineKeyboardButton(text='Надай контакти гарячих ліній та спеціалістів', callback_data='answer2')
+  key_answer3 = types.InlineKeyboardButton(text='Я хочу дізнатися про суть цієї проблеми', callback_data='answer3')
+  key_answer4 = types.InlineKeyboardButton(text='Самотестування та самозаспокоєння', callback_data='answer4')
+  markup_inline.add(key_answer1,key_answer2,key_answer3,key_answer4)
+  bot.send_message(message.chat.id,'Привіт! Я консультую та даю дружні поради з питань взаємовідносин між військовослужбовцями. Можу допомогти в скрутній психологічній ситуації або просвітити в правових аспектах по цій темі.Поспілкуємось?',
+                   reply_markup=markup_inline)
+
+
+bot.polling()
